@@ -1,0 +1,8 @@
+services:
+  - type: static
+    name: jaundice-care
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: NODE_ENV
+        value: production
