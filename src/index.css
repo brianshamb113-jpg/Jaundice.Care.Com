@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #F7F6F2;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse-slow {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.overflow-y-auto {
+  -webkit-overflow-scrolling: touch;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes bounceSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-fadeIn { animation: fadeIn 0.3s ease-out; }
+.animate-bounce-slow { animation: bounceSlow 1s ease-in-out infinite; }
+
+/* Brand: pulsing red border for Refer Urgently */
+@keyframes pulse-border {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(163,45,45,0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(163,45,45,0); }
+}
+.animate-pulse-border { animation: pulse-border 1.6s ease-out infinite; }
+
+/* Brand: golden heartbeat line draw */
+@keyframes heartbeat-draw {
+  0% { stroke-dashoffset: 200; }
+  100% { stroke-dashoffset: 0; }
+}
+.animate-heartbeat {
+  stroke-dasharray: 200;
+  animation: heartbeat-draw 2.4s ease-in-out infinite;
+}
+
+/* Brand: loading dots in heartbeat rhythm */
+@keyframes dot-pulse {
+  0%, 100% { transform: scale(0.7); opacity: 0.4; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+.dot-rhythm > span {
+  animation: dot-pulse 1.1s ease-in-out infinite;
+}
+.dot-rhythm > span:nth-child(2) { animation-delay: 0.2s; }
+.dot-rhythm > span:nth-child(3) { animation-delay: 0.4s; }
+
+/* Brand: golden glow ring */
+.logo-glow {
+  box-shadow: 0 0 12px rgba(245,166,35,0.6), inset 0 0 8px rgba(245,166,35,0.2);
+}
+
+/* Brand: medical grid pattern */
+.medical-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Brand: faint heartbeat card pattern */
+.heartbeat-bg {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'><path d='M0 20 L30 20 L36 8 L42 32 L48 12 L54 28 L60 20 L120 20' fill='none' stroke='%230F6E56' stroke-width='1.5'/></svg>");
+  background-repeat: repeat;
+  background-size: 120px 40px;
+}
+
+/* Brand: tap scale */
+.tap-scale {
+  transition: transform 0.2s ease;
+}
+.tap-scale:active {
+  transform: scale(0.98);
+}
